@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>AngularJS Controllers</title>
+    <script src="../Script/angular.min.js"></script>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function ($scope) {
+            $scope.value = "Hello Intellilearn";
+        });
+    </script>
+    
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+      <p>{{ value }}</p>  
+</body>
+</html>

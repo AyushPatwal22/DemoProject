@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>AngularJS Animations</title>
+    <script src="../Script/angular.min.js"></script>
+    <script src="../Script/angular-animate.min.js"></script>
+</head>
+<style>
+    div {
+        transition: all linear 0.5s;
+        background-color: lightblue;
+        height: 50px;
+        width: 100%;
+    }
+
+    .ng-show {
+        height: 0;
+        width: 0;
+        background-color: transparent;
+    }
+</style>
+<body ng-app="ngAnimate">
+    <h3>AngularJS Animation</h3>
+    <p>AngularJS provides animation to your application. By adding animations to your application, adds beauty to the UI part of application.</p>
+    <p>To start using animations in your project, you must include its script/library in your project.</p>
+    <p>Here is the example ofanimations.</p>
+    <p>By clicking on checkbox see the changes.</p>
+    <h4>Check me: <input type="checkbox" ng-model="myCheck"></h4>
+    <div ng-show="myCheck">
+        <h2>Intellirise Tech Solutions</h2>
+    </div>
+</body>
+</html>

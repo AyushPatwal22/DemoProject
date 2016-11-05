@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>AngularJS Tables</title>
+    <script src="../Script/angular.min.js"></script>
+    <style>
+        table, th, td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div ng-app="mainApp" ng-controller="studentController">
+        <table>
+            <tr>
+                <th>Roll No.</th>
+                <th>Student Name</th>
+                <th>Marks</th>
+                <th>Grades</th>
+            </tr>
+            <tr ng-repeat="subject in student.subjects">
+                <td>{{ $index + 1 }}</td>
+                <td>{{ subject.name }}</td>
+                <td>{{ subject.marks }}</td>
+                <td>{{ subject.grades }}</td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var mainApp = angular.module("mainApp", []);
+        mainApp.controller('studentController', function ($scope) {
+            $scope.student = {
+                subjects: [
+                   { name: 'James', marks: 92, grades: 'A+' },
+                   { name: 'Jack', marks: 85, grades: 'A' },
+                   { name: 'Antony', marks: 96, grades: 'A+' },
+                   { name: 'Adam', marks: 72, grades: 'B' },
+                   { name: 'Christopher', marks: 67, grades: 'C' },
+                 ],
+            };
+        });
+    </script>
+</body>
+</html>

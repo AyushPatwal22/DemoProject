@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>AngularJS Custom Filters</title>
+    <script src="../Script/angular.min.js"></script>
+    <script>
+        var app = angular.module("MyApp", []);
+        app.filter("reverse", function () {
+            return function (input) {
+                var result = '';
+                input = input || "";
+                for (i = 0; i < input.length; i++) {
+                    result = input.charAt(i) + result;
+                };
+                return result;
+            }
+        });
+    </script>
+</head>
+<body ng-app="MyApp">
+    Enter you name: <input type="text" ng-model="name" />
+    <p>You Entered: {{ name }}</p>
+    <p>Reversed Name: {{ name | reverse }}</p>
+
+</body>
+</html>

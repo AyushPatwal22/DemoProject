@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>AngularJS Forms & Validations</title>
+    <script src="../Script/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="mainApp" ng-controller="studentController">
+        <form name="studentForm" novalidate>
+            <p>
+                First Name:<br />
+                <input name="firstname" type="text" ng-model="firstname" required>
+                <span style="color:red" ng-show="studentForm.firstname.$dirty && studentForm.firstname.$invalid">
+                    <span ng-show="studentForm.firstname.$error.required">First Name is required.</span>
+                </span>
+            </p>
+            <p>
+                Last Name:<br />
+                <input name="lastname" type="text" ng-model="lastname" required>
+                <span style="color:red" ng-show="studentForm.lastname.$dirty && studentForm.lastname.$invalid">
+                    <span ng-show="studentForm.lastname.$error.required">Last Name is required.</span>
+                </span>
+            </p>
+            <p>
+                Email:<br />
+                <input name="email" type="email" ng-model="email" length="100" required>
+                <span style="color:red" ng-show="studentForm.email.$dirty && studentForm.email.$invalid">
+                    <span ng-show="studentForm.email.$error.required">Email is required.</span>
+                    <span ng-show="studentForm.email.$error.email">Invalid email address.</span>
+                </span>
+            </p>
+            <p>
+                <input type="submit"
+                       ng-disabled="studentForm.firstname.$dirty && studentForm.firstname.$invalid ||
+                       studentForm.lastname.$dirty && studentForm.lastname.$invalid ||
+                       studentForm.email.$dirty && studentForm.email.$invalid">
+            </p>
+        </form>
+
+        <script>
+            var mainApp = angular.module("mainApp", []);
+            mainApp.controller('studentController', function ($scope) {
+                $scope.firstname = "AngularJS";
+                $scope.lastname = "Forms";
+                $scope.email = "Angularjsforms@intellilearn.com";
+            });
+        </script>
+
+</body>
+</html>
